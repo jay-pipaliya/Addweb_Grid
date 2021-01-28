@@ -1,7 +1,7 @@
 # Addweb_Grid
 Custom module with admin grid for news maangement, display in frontend and Rest Api.
 
-Custom News menu.
+Custom News menu. Enables status news will show up in fontend.
 ![image](https://user-images.githubusercontent.com/68804888/106142968-234b6900-6198-11eb-8d3f-c70a14570340.png)
 
 Admim grid:
