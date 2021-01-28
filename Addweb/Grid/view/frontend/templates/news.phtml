@@ -7,11 +7,11 @@ $medialurl= $objectManager->get('Magento\Store\Model\StoreManagerInterface')->ge
 	<?php if($allnews && count($allnews) > 0): ?>
 		<?php foreach($allnews as $news): ?>
 			<?php if($news['is_active'] == 1): ?>
-			<div class="rsg-news-list">
-				<div class="rsg-news-title">
+			<div class="news-list">
+				<div class="news-title">
 					<h2><?php echo $news->getTitle() ?></h2>
 					</div>
-				<div class="rsg-news-desc">
+				<div class="news-desc">
 					<p><?php echo $news->getContent() ?></p>
 						
 				</div>
@@ -23,7 +23,7 @@ $medialurl= $objectManager->get('Magento\Store\Model\StoreManagerInterface')->ge
 			 <?php endif; ?>
 		<?php endforeach; ?>
 	<?php else: ?>
-		<div class="rsgitech-no-records">
+		<div class="no-records">
 			<?php echo __('News not available'); ?>
 		</div>
 	<?php endif; ?>
