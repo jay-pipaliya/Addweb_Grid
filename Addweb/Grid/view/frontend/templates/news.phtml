@@ -1,0 +1,30 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$medialurl= $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+?>
+  <div class="news">
+	<?php $allnews = $this->getCollection() ?>
+	<?php if($allnews && count($allnews) > 0): ?>
+		<?php foreach($allnews as $news): ?>
+			<?php if($news['is_active'] == 1): ?>
+			<div class="rsg-news-list">
+				<div class="rsg-news-title">
+					<h2><?php echo $news->getTitle() ?></h2>
+					</div>
+				<div class="rsg-news-desc">
+					<p><?php echo $news->getContent() ?></p>
+						
+				</div>
+
+				 <?php if ($imageUrl = $news->getImage()): ?>
+               <div><img src="<?php echo $medialurl.$imageUrl ?>" width="50px" height="50px"/></div>
+            <?php endif; ?>
+			</div>
+			 <?php endif; ?>
+		<?php endforeach; ?>
+	<?php else: ?>
+		<div class="rsgitech-no-records">
+			<?php echo __('News not available'); ?>
+		</div>
+	<?php endif; ?>
+</div>

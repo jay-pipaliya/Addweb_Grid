@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Addweb\Grid\Api\Data\GridInterface" type="Addweb\Grid\Model\Grid" />
+
+    <virtualType name="Addweb\Grid\Model\ResourceModel\Grid\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">addweb_news</argument>
+            <argument name="resourceModel" xsi:type="string">Addweb\Grid\Model\ResourceModel\Grid</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="grid_record_grid_list_data_source" xsi:type="string">Addweb\Grid\Model\ResourceModel\Grid\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Api prefrecences -->
+
+        <preference for="Addweb\Grid\Api\NewsManagementInterface" type="Addweb\Grid\Model\NewsManagement"/>
+
+    <!-- Add Plugin for add custom link in navigation -->
+    <type name="Magento\Theme\Block\Html\Topmenu">
+        <plugin name="add_menu_item_plugin" type="Addweb\Grid\Plugin\Topmenu" sortOrder="10" disabled="false"/>
+    </type>
+
+</config>
